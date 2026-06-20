@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Painel Administrativo</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='estilo/admin.css') }}">
+
+</head>
+
+<body>
+
+<h1>Contatos Recebidos</h1>
+
+<!-- USUÁRIO LOGADO -->
+<p class="usuario-logado">
+    Logado como: {{ usuario }}
+</p>
+
+<a class="logout" href="/logout">
+    Sair
+</a>
+
+<div class="filtros">
+
+<a class="filtro" href="/admin">
+Todos
+</a>
+
+<a class="filtro" href="/admin/pendentes">
+Pendentes
+</a>
+
+<a class="filtro" href="/admin/atendidos">
+Atendidos
+</a>
+
+</div>
+
+<form class="pesquisa" action="/pesquisar" method="get">
+
+<input
+type="text"
+name="nome"
+placeholder="Pesquisar nome">
+
+<button type="submit">
+Pesquisar
+</button>
+
+</form>
+
+<table border="1">
+
+<tr>
+
+<th>ID</th>
+<th>Nome</th>
+<th>WhatsApp</th>
+<th>Mensagem</th>
+<th>Status</th>
+<th>Ações</th>
+
+</tr>
+
+{% for contato in contatos %}
+
+<tr>
+
+<td>{{ contato[0] }}</td>
+<td>{{ contato[1] }}</td>
+<td>{{ contato[2] }}</td>
+<td>{{ contato[3] }}</td>
+
+<td>
+
+{% if contato[4] == 'Pendente' %}
+
+<span class="pendente">
+{{ contato[4] }}
+</span>
+
+{% else %}
+
+<span class="atendido">
+{{ contato[4] }}
+</span>
+
+{% endif %}
+
+</td>
+
+<td>
+
+<a class="whatsapp"
+href="https://wa.me/55{{ contato[2] }}"
+target="_blank">
+
+WhatsApp
+
+</a>
+
+<a class="atender"
+href="/atender/{{ contato[0] }}">
+
+Atender
+
+</a>
+
+<a class="excluir"
+href="/excluir/{{ contato[0] }}"
+onclick="return confirm('Tem certeza que deseja excluir este contato?')">
+
+Excluir
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+
+</html>

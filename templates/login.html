@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login Administrativo</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='estilo/admin.css') }}">
+
+</head>
+
+<body>
+
+<h1>Área Administrativa</h1>
+
+<form class="login-box" action="/login" method="POST">
+
+<input
+type="text"
+name="usuario"
+placeholder="Usuário"
+required>
+
+<input
+type="password"
+name="senha"
+placeholder="Senha"
+required>
+
+<button type="submit">
+
+Entrar
+
+</button>
+
+</form>
+
+</body>
+
+</html>
