@@ -1,410 +1,1008 @@
 @charset "UTF-8";
 
-/* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/*=====================================================
+RESET
+=====================================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-html, body {
-    min-height: 100vh;
+
+/*=====================================================
+VARIÁVEIS DE CORES
+=====================================================*/
+
+:root{
+
+    --azul-principal:#1D7882;
+    --azul-escuro:#145963;
+    --azul-hover:#0F4D55;
+    --azul-claro:#EAF4F5;
+
+    --branco:#FFFFFF;
+    --cinza:#F5F7F8;
+    --texto:#444444;
+    --borda:#D9E3E5;
+
 }
 
-/* HEADER */
-.header {
-    display: flex;
-    align-items: center;
-    min-height: 150px;
-    width: 100%;
-    background-color: #dcd9c9;
-    color: #ce8946;
-    padding: 10px;
+
+/*=====================================================
+CONFIGURAÇÃO GERAL
+=====================================================*/
+
+html{
+
+    scroll-behavior:smooth;
+
 }
 
-/* LOGO */
-.logo {
-    width: 150px;
-    height: 150px;
-    object-fit: contain;
-}
 
-/* BLOCO DE TEXTO */
-.texto-header {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 15px;
-}
+body{
 
-/* TÍTULO */
-.titulo {
-    font-family: "Kaushan Script", cursive;
-    font-size: clamp(20px, 3.5vw, 40px);
-    line-height: 1.1;
-    text-align: center;
-}
+    min-height:100vh;
 
-/* QUEBRA CONTROLADA */
-.titulo span {
-    display: block;
-}
+    background:var(--branco);
 
-/* OAB */
-.oab {
-    font-family: "Patua One", serif;
-    font-size: clamp(12px, 1.5vw, 16px);
-    margin-top: 5px;
-    text-align: right;
-}
+    color:var(--texto);
 
-/* MENU */
-.menu {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    background-color: #dcd9c9;
-    padding: 10px;
-    font-family: "Patua One", serif;
-    flex-wrap: wrap; /* já deixa responsivo */
-}
+    font-family:"Patua One",serif;
 
-/* LINKS DO MENU */
-.menu a {
-    text-decoration: none;
-    color: #ce8946;
-    font-weight: bold;
-    padding: 6px 12px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
-
-/* 🔥 HOVER MODERNO */
-.menu a:hover {
-    color: white;
-    background-color: #AA6B3B;
-    transform: scale(1.05);
-}
-
-/* ✨ LINHA ANIMADA (efeito premium) */
-.menu a {
-    position: relative;
-}
-
-.menu a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -3px;
-    width: 0%;
-    height: 2px;
-    background-color: #AA6B3B;
-    transition: 0.3s;
-}
-
-.menu a:hover::after {
-    width: 100%;
 }
 
 
 
-/* 📱 RESPONSIVO */
-@media (max-width: 600px) {
+/*=====================================================
+HEADER
+=====================================================*/
 
-    .header {
-        align-items: center;
-    }
+.header{
 
-    .logo {
-        width: 80px;
-        height: 80px;
-    }
+    display:flex;
 
-    .titulo {
-        font-size: clamp(18px, 5vw, 28px);
-    }
+    justify-content:center;
 
-    .menu {
-        justify-content: center;
-    }
+    align-items:center;
 
-    .menu a {
-        font-size: 14px;
-    }
-}
-.noticias {
-    padding: 40px;
-    background-color: #f5f5f5;
+    gap:40px;
+
+    padding:30px 40px;
+
+    background:var(--branco);
+
+    border-bottom:1px solid var(--borda);
+
 }
 
-.noticias h2 {
-    margin-bottom: 30px;
-    font-family: "Patua One", serif;
-    color: #AA6B3B;
+
+/*=====================================================
+LOGO
+=====================================================*/
+
+.logo{
+
+    width:260px;
+
+    height:auto;
+
+    transition:.3s;
+
 }
 
-/* LISTA */
-.lista-noticias {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+
+.logo:hover{
+
+    transform:scale(1.04);
+
 }
 
-/* CARD */
-.noticia {
-    display: flex;
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: 0.3s;
+
+
+/*=====================================================
+ÁREA DO TEXTO DO HEADER
+=====================================================*/
+
+.texto-header{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
 }
+
+
+
+/*=====================================================
+NOME
+=====================================================*/
+
+.titulo{
+
+    font-family:"Times New Roman",serif;
+
+    font-weight:bold;
+
+    color:var(--azul-principal);
+
+    font-size:clamp(36px,4vw,60px);
+
+    line-height:1.05;
+
+    letter-spacing:1px;
+
+    text-align:center;
+
+}
+
+
+.titulo span{
+
+    display:block;
+
+    font-size:.72em;
+
+    color:var(--azul-escuro);
+
+    margin-top:5px;
+
+}
+
+
+
+/*=====================================================
+OAB
+=====================================================*/
+
+.oab{
+
+    margin-top:12px;
+
+    text-align:right;
+
+    color:#666;
+
+    font-size:16px;
+
+    font-family:Georgia,serif;
+
+}
+
+
+
+/*=====================================================
+MENU
+=====================================================*/
+
+.menu{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:25px;
+
+    flex-wrap:wrap;
+
+    padding:18px;
+
+    background:var(--azul-principal);
+
+}
+
+
+
+/*=====================================================
+LINKS MENU
+=====================================================*/
+
+.menu a{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:45px;
+
+    height:45px;
+
+    text-decoration:none;
+
+    color:var(--branco);
+
+    background:var(--azul-principal);
+
+    border-radius:50%;
+
+    font-size:22px;
+
+    transition:.3s;
+
+}
+
+.menu a:hover{
+
+    background:var(--azul-hover);
+
+    transform:translateY(-5px);
+
+}
+
+/*=====================================================
+RESPONSIVO HEADER
+=====================================================*/
+
+@media(max-width:768px){
+
+
+.header{
+
+    flex-direction:column;
+
+    gap:15px;
+
+    padding:25px 15px;
+
+}
+
+
+.logo{
+
+    width:200px;
+
+}
+
+
+.titulo{
+
+    font-size:32px;
+
+}
+
+
+.oab{
+
+    text-align:center;
+
+}
+
+
+.menu{
+
+    gap:10px;
+
+}
+
+
+.menu a{
+
+    font-size:15px;
+
+    padding:8px 12px;
+
+}
+
+
+}
+/*=====================================================
+NOTÍCIAS
+=====================================================*/
+
+.noticias{
+
+    padding:50px 20px;
+
+    background:var(--cinza);
+
+}
+
+
+.noticias h2{
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+    font-family:"Patua One",serif;
+
+    color:var(--azul-principal);
+
+    font-size:32px;
+
+}
+
+
+
+/* LISTA DE NOTÍCIAS */
+
+.lista-noticias{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+    max-width:1100px;
+
+    margin:auto;
+
+}
+
+
+
+/* CARD NOTÍCIA */
+
+.noticia{
+
+    display:flex;
+
+    background:var(--branco);
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    border:1px solid var(--borda);
+
+    transition:.3s;
+
+}
+
+
+
+.noticia:hover{
+
+    transform:translateY(-5px);
+
+}
+
+
 
 /* IMAGEM */
-.noticia img {
-    width: 250px;
-    height: 180px;
-    object-fit: cover;
+
+.noticia img{
+
+    width:250px;
+
+    height:180px;
+
+    object-fit:cover;
+
 }
 
-/* TEXTO */
-.conteudo {
-    padding: 15px;
-    font-family: "Patua One", serif;
-    color: #AA6B3B;
+
+
+/* CONTEÚDO */
+
+.conteudo{
+
+    padding:20px;
+
 }
 
-.conteudo h3 {
-    margin-bottom: 10px;
-    font-family: "Patua One", serif;
-    color: #AA6B3B;
+
+.conteudo h3{
+
+    margin-bottom:10px;
+
+    font-family:"Patua One",serif;
+
+    color:var(--azul-principal);
+
 }
 
-.data {
-    font-family: "Patua One", serif;
-    color: #AA6B3B;
-    font-size: 14px;
-    display: block;
-    margin-bottom: 10px;
+
+
+.data{
+
+    display:block;
+
+    margin-bottom:10px;
+
+    color:var(--azul-escuro);
+
+    font-size:14px;
+
 }
 
-.conteudo p {
-    font-size: 14px;
-    font-family: "Patua One", serif;
-    color: #AA6B3B;
+
+
+.conteudo p{
+
+    font-size:15px;
+
+    line-height:1.6;
+
+    color:var(--texto);
+
 }
 
-/* HOVER */
-.noticia:hover {
-    transform: translateY(-3px);
-}
-.areas {
-    padding: 50px 20px;
-    background-color: white;
-    text-align: center;
+
+
+
+/*=====================================================
+ÁREAS DE ATUAÇÃO
+=====================================================*/
+
+
+.areas{
+
+    padding:60px 20px;
+
+    background:var(--branco);
+
+    text-align:center;
+
 }
 
-.areas h2 {
-    margin-bottom: 30px;
-    font-family: "Patua One", serif;
-    color: #AA6B3B;
+
+
+.areas h2{
+
+    margin-bottom:40px;
+
+    font-family:"Patua One",serif;
+
+    color:var(--azul-principal);
+
+    font-size:32px;
+
 }
+
+
 
 /* GRID */
-.lista-areas {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+
+.lista-areas{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    max-width:1300px;
+
+    margin:auto;
+
+    flex-wrap:nowrap;
+
 }
+
+
 
 /* CARD */
-.area {
-    background-color: #f5f5f5;
-    padding: 20px;
-    border-radius: 10px;
-    transition: 0.3s;
+
+.area{
+
+    background:var(--azul-claro);
+
+    padding:25px;
+
+    border-radius:12px;
+
+    border:1px solid var(--borda);
+
+    transition:.3s;
+
 }
+
+
+
+.area:hover{
+
+    transform:translateY(-6px);
+
+    background:var(--azul-principal);
+
+}
+
+
 
 /* TÍTULO */
-.area h3 {
-    margin-bottom: 10px;
-    color: #ce8946;
+
+.area h3{
+
+    margin-bottom:12px;
+
+    color:var(--azul-principal);
+
+    font-size:21px;
+
 }
+
+
+
+.area:hover h3{
+
+    color:var(--branco);
+
+}
+
+
 
 /* TEXTO */
-.area p {
-    font-size: 14px;
-    font-family: "Patua One", serif;
-    color: #AA6B3B;
-}
 
-/* HOVER */
-.area:hover {
-    transform: translateY(-5px);
-    background-color: #ce8946;
-    color: white;
-}
+.area p{
 
-.area:hover h3 {
-    color: white;
-}
-section {
-  padding-top: 10vh;
-  padding-bottom: 10vh;
-  line-height: 2em;
-  padding-left:30px;
-  font-family: "Patua One", serif;
-  
-}
-section.normal {
-    background-color:white;
-    color: #ce8946;
-    font-size: 2vw;    
-    
-}
-section.imagem {
-    background-color:rgb(51,51,51);
-    color:white;
-    font-size: 2vw;
-    box-shadow: inset 6px 6px 13px 0px black;
-    background-attachment: fixed;
+    font-size:15px;
+
+    line-height:1.6;
+
+    color:var(--texto);
 
 }
-section.imagem > p {
-    width: 400px;
-    background-color: rgba(0, 0, 0, 0.411);
-    
-    
-}
-section#img01 {
-    background-image: url(../imagens/background001.jpg);
-    background-position: right center;
-    background-size: cover;
+
+
+
+.area:hover p{
+
+    color:var(--branco);
 
 }
-section#img02 {
-    background-image: url(../imagens/background002.jpg);
-    
-     background-size: cover;
-}
-.video-box {
-  display: flex;
-  gap: 20px;
-  background-color:#dcd9c9;
-  padding: 20px;
-  border-radius: 10px;
-  justify-content: center;
+/*=====================================================
+SEÇÕES GERAIS
+=====================================================*/
+
+section{
+
+    padding-top:10vh;
+
+    padding-bottom:10vh;
+
+    padding-left:30px;
+
+    padding-right:30px;
+
+    line-height:2em;
+
+    font-family:"Patua One",serif;
+
 }
 
-.video {
-  flex: 1;
+
+
+/*=====================================================
+SEÇÃO NORMAL
+=====================================================*/
+
+section.normal{
+
+    background:var(--branco);
+
+    color:var(--azul-principal);
+
+    font-size:clamp(18px,2vw,28px);
+
 }
 
-.video iframe {
-  width: 100%;
-  height: 300px;
-  border-radius: 8px;  
+
+
+/*=====================================================
+PARALLAX
+=====================================================*/
+
+section.imagem{
+
+    background-color:#333;
+
+    color:var(--branco);
+
+    font-size:clamp(18px,2vw,28px);
+
+    box-shadow:inset 6px 6px 20px #000;
+
+    background-attachment:fixed;
+
+    background-position:center;
+
+    background-size:cover;
+
 }
 
-.box-igreja {
-  padding: 10px; 
-  display: flex;
-  align-items: center; /* alinha verticalmente */
-  gap: 40px; /* espaço entre imagem e texto */
+
+
+/* TEXTO SOBRE IMAGEM */
+
+section.imagem > p{
+
+    width:min(600px,90%);
+
+    padding:20px;
+
+    background:rgba(0,0,0,.45);
+
+    border-radius:10px;
+
 }
 
-.box-igreja img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover; /* evita deformar a imagem */
-  border-radius: 8px; /* opcional, deixa mais elegante */
+
+
+/* IMAGENS */
+
+section#img01{
+
+    background-image:url("../imagens/background001.jpg");
+
+    background-position:right center;
+
 }
 
-.box-igreja .texto {
-  max-width: 1280px;
-  padding: 8px;
-  font-size: 1.5vw;
-  line-height: 1.6;
-  color: #ce8946;
-  font-family: "Patua One", serif;
-   box-shadow: inset 6px 6px 13px 0px #ce8946;
+
+
+section#img02{
+
+    background-image:url("../imagens/background002.jpg");
+
 }
+
+
+
+/*=====================================================
+VÍDEOS
+=====================================================*/
+
+.video-box{
+
+    display:flex;
+
+    gap:20px;
+
+    background:var(--azul-claro);
+
+    padding:20px;
+
+    border-radius:12px;
+
+    justify-content:center;
+
+}
+
+
+
+.video{
+
+    flex:1;
+
+}
+
+
+
+.video iframe{
+
+    width:100%;
+
+    height:300px;
+
+    border-radius:10px;
+
+    border:none;
+
+}
+
+
+
+/*=====================================================
+IGREJAS
+=====================================================*/
+
+
+.box-igreja{
+
+    padding:30px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:40px;
+
+}
+
+
+
+.box-igreja img{
+
+    width:200px;
+
+    height:200px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+
+}
+
+
+
+/* TEXTO IGREJA */
+
+.box-igreja .texto{
+
+    max-width:900px;
+
+    padding:20px;
+
+    font-size:clamp(16px,1.5vw,22px);
+
+    line-height:1.7;
+
+    text-align:center;
+
+    color:var(--azul-principal);
+
+    font-family:"Patua One",serif;
+
+    border-radius:10px;
+
+    box-shadow:inset 0 0 15px var(--azul-principal);
+
+}
+/*=====================================================
+CONTATO
+=====================================================*/
+
 .contato{
 
-padding:50px 20px;
+    padding:60px 20px;
 
-background:#f5f5f5;
+    background:var(--cinza);
 
 }
+
+
 
 .contato h2{
 
-text-align:center;
+    text-align:center;
 
-margin-bottom:30px;
+    margin-bottom:35px;
 
-font-family:"Patua One", serif;
+    font-family:"Patua One",serif;
 
-color:#AA6B3B;
+    color:var(--azul-principal);
+
+    font-size:32px;
 
 }
+
+
 
 .contato form{
 
-max-width:700px;
+    max-width:700px;
 
-margin:auto;
+    margin:auto;
 
-display:flex;
+    display:flex;
 
-flex-direction:column;
+    flex-direction:column;
 
-gap:15px;
+    gap:15px;
 
 }
+
+
 
 .contato label{
 
-font-family:"Patua One", serif;
+    color:var(--azul-escuro);
 
-color:#AA6B3B;
+    font-weight:bold;
 
 }
+
+
 
 .contato input,
 
 .contato textarea{
 
-padding:12px;
+    padding:14px;
 
-border:1px solid #ccc;
+    border:1px solid var(--borda);
 
-border-radius:8px;
+    border-radius:8px;
 
-font-size:16px;
+    font-size:16px;
+
+    font-family:Arial,sans-serif;
 
 }
+
+
+
+.contato textarea{
+
+    min-height:150px;
+
+    resize:vertical;
+
+}
+
+
 
 .contato button{
 
-padding:15px;
+    padding:15px;
 
-background:#AA6B3B;
+    background:var(--azul-principal);
 
-color:white;
+    color:var(--branco);
 
-border:none;
+    border:none;
 
-border-radius:8px;
+    border-radius:8px;
 
-cursor:pointer;
+    cursor:pointer;
 
-font-size:18px;
+    font-size:18px;
+
+    transition:.3s;
 
 }
 
+
+
 .contato button:hover{
 
-opacity:0.9;
+    background:var(--azul-hover);
+
+}
+
+
+
+/*=====================================================
+RESPONSIVO GERAL
+=====================================================*/
+
+
+@media(max-width:768px){
+
+
+/* NOTÍCIAS */
+
+.noticia{
+
+    flex-direction:column;
+
+}
+
+
+
+.noticia img{
+
+    width:100%;
+
+    height:220px;
+
+}
+
+
+
+/* VÍDEOS */
+
+.video-box{
+
+    flex-direction:column;
+
+}
+
+
+
+.video iframe{
+
+    height:220px;
+
+}
+
+
+
+/* IGREJAS */
+
+.box-igreja{
+
+    flex-direction:column;
+
+    text-align:center;
+
+}
+
+
+
+.box-igreja img{
+
+    width:170px;
+
+    height:170px;
+
+}
+
+
+
+/* SEÇÕES */
+
+section{
+
+    padding-left:15px;
+
+    padding-right:15px;
+
+}
+
+
+
+section.imagem > p{
+
+    width:100%;
+
+}
+
+
+
+/* MENU */
+
+.menu{
+
+    padding:12px;
+
+}
+
+
+
+}
+
+
+
+/*=====================================================
+TELAS PEQUENAS
+=====================================================*/
+
+
+@media(max-width:480px){
+
+
+.titulo{
+
+    font-size:28px;
+
+}
+
+
+.logo{
+
+    width:170px;
+
+}
+
+
+.noticias h2,
+
+.areas h2,
+
+.contato h2{
+
+    font-size:26px;
+
+}
+
+
+.area{
+
+    padding:20px;
+
+}
+
 
 }
