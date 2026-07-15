@@ -127,13 +127,11 @@ NOME
 
     font-weight:bold;
 
-    color:var(--azul-principal);
+    color:#C89B3C;
 
     font-size:clamp(36px,4vw,60px);
 
     line-height:1.05;
-
-    letter-spacing:1px;
 
     text-align:center;
 
@@ -146,7 +144,7 @@ NOME
 
     font-size:.72em;
 
-    color:var(--azul-escuro);
+    color:#C89B3C;
 
     margin-top:5px;
 
@@ -160,15 +158,17 @@ OAB
 
 .oab{
 
-    margin-top:12px;
+    margin-top:10px;
 
-    text-align:right;
+    text-align:center;
 
-    color:#666;
+    color:#C89B3C;
 
-    font-size:16px;
+    font-size:20px;
 
     font-family:Georgia,serif;
+
+    font-weight:bold;
 
 }
 
